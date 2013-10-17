@@ -4,14 +4,14 @@ $secret_key = getenv('SECRET_KEY') ? getenv('SECRET_KEY') : 'Ch4nG3_M3';
 $app = new \Silex\Application();
 
 $app->get('/', function () use ($app) {
-  return $app->sendFile(getenv('OPENSHIFT_REPO_DIR') . 'static/index.html');
+  return $app->sendFile('../static/index.html');
 });
 
 $app->get('/css/{filename}', function ($filename) use ($app){
-  if (!file_exists(getenv('OPENSHIFT_REPO_DIR') . 'static/css/' . $filename)) {
+  if (!file_exists('../static/css/' . $filename)) {
     $app->abort(404);
   }
-  return $app->sendFile(getenv('OPENSHIFT_REPO_DIR') . 'static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
+  return $app->sendFile('../static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
 });
 
 $app->get('/hello/{name}', function ($name) use ($app) {

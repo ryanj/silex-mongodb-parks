@@ -35,9 +35,8 @@
   <script>
     var map = L.map('map').setView([37.8, -122.3], 10);
     var markerLayerGroup = L.layerGroup().addTo(map);
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+    L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+      maxZoom: 18
     }).addTo(map);
 
     function getPins(e){

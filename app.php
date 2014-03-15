@@ -7,12 +7,12 @@ $app->get('/', function () use ($app) {
   return $app->sendFile('static/index.html');
 });
 
-//$app->get('/css/{filename}', function ($filename) use ($app){
-//  if (!file_exists('static/css/' . $filename)) {
-//    $app->abort(404);
-//  }
-//  return $app->sendFile('static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
-//});
+$app->get('/css/{filename}', function ($filename) use ($app){
+  if (!file_exists('static/css/' . $filename)) {
+    $app->abort(404);
+  }
+  return $app->sendFile('static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
+});
 
 $app->get('/hello/{name}', function ($name) use ($app) {
   return new Response( "Hello, {$app->escape($name)}!");

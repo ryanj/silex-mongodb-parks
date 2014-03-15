@@ -4,6 +4,6 @@
 mongoimport --db $OPENSHIFT_APP_NAME --collection parks --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --port $OPENSHIFT_MONGODB_DB_PORT --type json --file $OPENSHIFT_REPO_DIR/parkcoord.json
 
 # add a spatial index to our collection:
-pushd $OPENSHIFT_REPO_DIR/php
+pushd $OPENSHIFT_REPO_DIR
 php bootstrap.php
 popd

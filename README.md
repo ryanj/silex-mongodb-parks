@@ -11,5 +11,11 @@ Or [link to a web-based clone+deploy](https://openshift.redhat.com/app/console/a
 
 A demo is available at: [http://phparks-shifter.rhcloud.com/](http://phparks-shifter.rhcloud.com/)
 
+## Local Development
+
+Fire up your own local development server with php-5.4 or better:
+
+    php -S localhost:8080 -t static app.php 
+
 ## License
 This code is dedicated to the public domain to the maximum extent permitted by applicable law, pursuant to CC0 (http://creativecommons.org/publicdomain/zero/1.0/)

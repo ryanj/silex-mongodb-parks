@@ -1,21 +1,29 @@
 <?php
+//Allow PHP's built-in server to serve our static content in local dev:
+if (php_sapi_name() === 'cli-server' && is_file(__DIR__.'/static'.preg_replace('#(\?.*)$#','', $_SERVER['REQUEST_URI']))
+   ) {
+  return false;
+}
+
 require 'vendor/autoload.php';
-$secret_key = getenv('SECRET_KEY') ? getenv('SECRET_KEY') : 'Ch4nG3_M3';
+use Symfony\Component\HttpFoundation\Response;
 $app = new \Silex\Application();
 
 $app->get('/', function () use ($app) {
   return $app->sendFile('static/index.html');
 });
 
+$app->get('/hello/{name}', function ($name) use ($app) {
+  return new Response( "Hello, {$app->escape($name)}!");
+});
+
+// the .htaccess file should handle our static content in Production.
+// Here's an alternative method for serving static content via Silex:
 $app->get('/css/{filename}', function ($filename) use ($app){
   if (!file_exists('static/css/' . $filename)) {
     $app->abort(404);
   }
   return $app->sendFile('static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
-});
-
-$app->get('/hello/{name}', function ($name) use ($app) {
-  return new Response( "Hello, {$app->escape($name)}!");
 });
 
 $app->get('/parks', function () use ($app) {

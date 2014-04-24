@@ -36,6 +36,7 @@
     var map = L.map('map').setView([37.8, -122.3], 10);
     var markerLayerGroup = L.layerGroup().addTo(map);
     L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
       maxZoom: 18
     }).addTo(map);
 

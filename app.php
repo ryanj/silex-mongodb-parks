@@ -18,13 +18,14 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 });
 
 // the .htaccess file should handle our static content in Production.
-// Here's an alternative method for serving static content via Silex:
-$app->get('/css/{filename}', function ($filename) use ($app){
-  if (!file_exists('static/css/' . $filename)) {
-    $app->abort(404);
-  }
-  return $app->sendFile('static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
-});
+// PHP-5.4's local server can handle static content as well (see README)
+// This alternate method for serving static files should not be needed:
+//$app->get('/css/{filename}', function ($filename) use ($app){
+//  if (!file_exists('static/css/' . $filename)) {
+//    $app->abort(404);
+//  }
+//  return $app->sendFile('static/css/' . $filename, 200, array('Content-Type' => 'text/css'));
+//});
 
 $app->get('/parks', function () use ($app) {
   $db_connection = getenv('OPENSHIFT_MONGODB_DB_URL') ? getenv('OPENSHIFT_MONGODB_DB_URL') . getenv('OPENSHIFT_APP_NAME') : "mongodb://localhost:27017/";

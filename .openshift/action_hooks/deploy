@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# *Todo: Find a way to ensure that this import only happens once:
-mongoimport --db $OPENSHIFT_APP_NAME --collection parks --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --port $OPENSHIFT_MONGODB_DB_PORT --type json --file $OPENSHIFT_REPO_DIR/parkcoord.json
+mongoimport --db $OPENSHIFT_APP_NAME --collection parks --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --port $OPENSHIFT_MONGODB_DB_PORT --drop --type json --file $OPENSHIFT_REPO_DIR/parkcoord.json
 
 # add a spatial index to our collection:
 pushd $OPENSHIFT_REPO_DIR

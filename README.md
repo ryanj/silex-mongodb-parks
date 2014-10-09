@@ -1,6 +1,9 @@
 # Map of US National Parks
 *powered by Silex, PHP, MongoDB, and Leaflet maps*
 
+## OpenShift Hosting
+[![Build Status](https://build-shifter.rhcloud.com/buildStatus/icon?job=phparks-build)](http://phparks-shifter.rhcloud.com/)
+
 To deploy a clone of this application using the [`rhc` command line tool](http://rubygems.org/gems/rhc):
 
     rhc app create parks php-5.4 mongodb-2 --from-code=https://github.com/openshift-quickstart/silex-mongodb-parks.git

@@ -3,6 +3,8 @@
 
 [![Build Status](http://img.shields.io/jenkins/s/https/build-shifter.rhcloud.com/phparks-build.svg)](https://build-shifter.rhcloud.com/job/phparks-build/) [![Deploy](https://img.shields.io/badge/Launch_on-OpenShift-brightgreen.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=php-5&cartridges[]=mongodb-2&initial_git_url=https://github.com/ryanj/silex-mongodb-parks&name=phparks)
 
+[![Parks example image](https://blog.openshift.com/wp-content/uploads/imported/national_parks_app.png)](http://phparks-shifter.rhcloud.com)
+
 ## OpenShift Hosting
 
 [![LAUNCH ON OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=php-5&cartridges[]=mongodb-2&initial_git_url=https://github.com/ryanj/silex-mongodb-parks&name=phparks)

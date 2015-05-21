@@ -61,7 +61,7 @@ $app->get('/parks/within', function () use ($app) {
   }else{
     $result = $parks->find( 
       array( 'pos' => 
-        array( '$within' => 
+        array( '$geoWithin' => 
           array( '$box' =>
             array(
               array( $lon1, $lat1),

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# cleanup and reset - TODO: implement in php inside bootstrap.php:
-mongo $OPENSHIFT_APP_NAME --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --eval "db.parks.drop()"
-
 #import our data - TODO: implement the php equivalent in bootstrap.php
-mongoimport --db $OPENSHIFT_APP_NAME --collection parks --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --port $OPENSHIFT_MONGODB_DB_PORT --type json --file $OPENSHIFT_REPO_DIR/parkcoord.json
+mongoimport --db $OPENSHIFT_APP_NAME --collection parks --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --port $OPENSHIFT_MONGODB_DB_PORT --drop --type json --file $OPENSHIFT_REPO_DIR/parkcoord.json
 
 # add a spatial index to our collection:
 ## mongo $OPENSHIFT_APP_NAME --host $OPENSHIFT_MONGODB_DB_HOST --username $OPENSHIFT_MONGODB_DB_USERNAME --password $OPENSHIFT_MONGODB_DB_PASSWORD --eval "db.parks.ensureIndex({'pos':'2d'})"
